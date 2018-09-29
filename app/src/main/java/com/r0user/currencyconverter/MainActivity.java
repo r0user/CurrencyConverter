@@ -11,11 +11,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void convertAmount(View view){
 
-        EditText rsAmount = (EditText) findViewById(R.id.rsAmount);
+
+        EditText rsAmount = findViewById(R.id.rsAmount);
         Log.i("amount", "Entered Amount is" + rsAmount.getText().toString());
-        Double rsAmountDouble = Double.parseDouble(rsAmount.getText().toString());
-        Double dollarAmount = rsAmountDouble * 0.014;
-        Toast.makeText(MainActivity.this, "$" + dollarAmount.toString(),Toast.LENGTH_SHORT).show();
+
+        if (rsAmount.getText().toString().equals(""))
+        {
+            Toast.makeText(MainActivity.this, "Enter Some Value First",Toast.LENGTH_SHORT).show();
+        }
+
+        else
+        {
+            Double rsAmountDouble = Double.parseDouble(rsAmount.getText().toString());
+            Double dollarAmount = rsAmountDouble * 0.014;
+            Toast.makeText(MainActivity.this, "$" + dollarAmount.toString(),Toast.LENGTH_SHORT).show();
+        }
 
     }
 
